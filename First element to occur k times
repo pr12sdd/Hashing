@@ -1,0 +1,15 @@
+int firstElementKTime(int a[], int n, int k)
+    {
+        unordered_map<int,int> m;
+        for(int i=0;i<n;i++)
+        {
+            int key=a[i];
+            m[key]++;
+            auto temp=m.find(key);
+            if(temp->second>=k)
+            {
+                return temp->first;
+            }
+        }
+        return -1;
+    }
