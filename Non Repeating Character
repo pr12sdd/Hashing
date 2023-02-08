@@ -1,0 +1,26 @@
+char nonrepeatingCharacter(string S)
+    {
+       unordered_map<char,int> m;
+       for(int i=0;i<S.size();i++)
+       {
+           char ch =S[i];
+           m[ch]++;
+       }
+       for(int i=0;i<S.size();i++)
+       {
+           char ch=S[i];
+           if(m.find(ch)!=m.end())
+           {
+               auto temp=m.find(ch);
+               if(temp->second==1)
+               {
+                   return (char)(S[i]);
+               }
+           }
+           /*if(m[ch]==1)
+           {
+               return (char)(S[i]);
+           }*/
+       }
+       return '$';
+    }
