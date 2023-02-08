@@ -1,0 +1,22 @@
+string firstRepChar(string s)
+{   unordered_map<char,int> m;
+    string A;
+    for(int i=0;i<s.length();i++)
+    {
+        char ch=s[i];
+        if(m.find(ch)!=m.end())
+        {
+            auto temp=m.find(ch);
+            m[ch]++;
+            if(temp->second>1)
+            {   
+                A.assign(1,ch);
+                return A; 
+            }
+        }
+        else
+        {m[ch]++;
+        }
+    }
+    return "-1";
+}
