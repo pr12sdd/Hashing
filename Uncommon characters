@@ -1,0 +1,41 @@
+string UncommonChars(string A, string B)
+        {
+            string s;
+             int i=0;
+             unordered_set<char> m;
+             unordered_set<char> n;
+             set<char> p;
+             for(int i=0;i<A.size();i++)
+             {   char ch=A[i];
+                 m.insert(ch);
+             }
+             for(int i=0;i<B.size();i++)
+             {   char ch=B[i];
+                 n.insert(ch);
+             }
+             for(auto itr=m.begin();itr!=m.end();itr++)
+             {
+                 if(n.find(*itr)==n.end())
+                 {
+                     p.insert(*itr);
+                 }
+             }
+            for(auto itr=n.begin();itr!=n.end();itr++)
+             {
+                 if(m.find(*itr)==m.end())
+                 {
+                     p.insert(*itr);
+                 }
+             }
+             for(auto itr=p.begin();itr!=p.end();itr++)
+             {
+                 s.push_back(*itr);
+                 //i++;
+             }
+             if(s.size())
+             {return s; }
+             else
+             {
+                 return "-1";
+             }
+        }
