@@ -1,0 +1,20 @@
+string printMinIndexChar(string S, string patt)
+	{
+	    unordered_set<char> m;
+	    string s;
+	    for(int i=0;i<patt.size();i++)
+	    {
+	        char ch=patt[i];
+	        m.insert(ch);
+	    }
+	    for(int i=0;i<S.size();i++)
+	    {
+	        char ch=S[i];
+	        if(m.count(ch))
+	        {   
+	            s.push_back(ch);
+	            return s;
+	        }
+	    }
+	    return "$";
+	}
