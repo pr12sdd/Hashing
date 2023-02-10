@@ -1,0 +1,19 @@
+bool subArrayExists(int arr[], int n)
+    {
+        unordered_set<int> m;
+        int prefix_sum=0;
+        for(int i=0;i<n;i++)
+        {
+            prefix_sum=prefix_sum+arr[i];
+            if(prefix_sum==0)
+            {
+                return true;
+            }
+            if(m.find(prefix_sum)!=m.end())
+            {
+                return true;
+            }
+            m.insert(prefix_sum);
+        }
+        return false;
+    }
