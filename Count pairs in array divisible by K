@@ -1,0 +1,19 @@
+long long countKdivPairs(int A[], int n, int K)
+    {
+        unordered_map<int,int> m;
+        long long int count=0;
+        for(int i=0;i<n;i++)
+        {
+            int nums1=A[i]%K;
+            if(nums1!=0)
+            {
+                count=count+m[K-(A[i]%K)];
+            }
+            else
+            {
+                count=count+m[0];
+            }
+            m[nums1]++;
+        }
+        return count;
+    }
