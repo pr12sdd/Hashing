@@ -1,0 +1,20 @@
+int count_tabs(string arr[], int n)
+    {
+        unordered_set<string> m;
+        for(int i=0;i<n;i++)
+        {
+            if(m.find(arr[i])!=m.end())
+            {
+                m.erase(arr[i]);
+            }
+            else if(arr[i]=="END")
+            {
+                m.clear();
+            }
+            else
+            {
+                m.insert(arr[i]);
+            }
+        }
+        return m.size();
+    }
