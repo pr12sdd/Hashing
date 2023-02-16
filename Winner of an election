@@ -1,0 +1,30 @@
+vector<string> winner(string arr[],int n)
+    {
+         unordered_map<string,int> m;
+         vector<string> k;
+         for(int i=0;i<n;i++)
+         {
+             m[arr[i]]++;
+         }
+         string max_string="";
+         int max_vote=0;
+         for(auto itr=m.begin();itr!=m.end();itr++)
+         {   
+             if(itr->second>max_vote)
+             {
+                  max_vote=itr->second;
+                  max_string=itr->first;
+             }
+             else if(itr->second==max_vote)
+             {
+                 if(max_string>itr->first)
+                 {
+                     max_string=itr->first;
+                 }
+             }
+          }
+          k.push_back(max_string);
+          string l=to_string(max_vote);
+          k.push_back(l);
+          return k;
+    }
