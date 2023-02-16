@@ -1,0 +1,30 @@
+    vector<int> maxDistinctNum(int arr[], int n)
+    {
+        unordered_map<int,int> m;
+        vector<int> k;
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]>0)
+            {
+                m[arr[i]]++;
+            }
+            else
+            {
+                if(m.find(-arr[i])!=m.end())
+                {
+                    auto temp=m.find(-arr[i]);
+                    if(temp->second==1)
+                    {
+                        m.erase(-arr[i]);
+                    }
+                    else
+                    {
+                        m[-arr[i]]--;
+                    }
+                }
+            }
+            k.push_back(m.size());
+        }
+        return k;
+    
+    }
